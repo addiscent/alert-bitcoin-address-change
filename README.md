@@ -1,7 +1,7 @@
 # alert-bitcoin-address-change
 This Bash script detects a change in the amount of Bitcoin contained in a Bitcoin address and sends a notification which contains the new "total amount received" at the address, and the amount of the increase from the previous check.  When run periodically as a _cron_ job, it may serve as a "new Bitcoin payment" alert.
 
-This script creates persistent variable storage so the script will work when run as a cron job.  The variable storage file is created if it does not already exist.  The name of the file is the Bitcoin address.  Because there could be potentially many variable storage files, (one for each Bitcoin address), they are stored in a sub-directory of the user's $HOME direcotry, named "bitcoin_addrs".
+This script creates persistent variable storage so the script will work when run as a cron job.  The variable storage file is created if it does not already exist.  The name of the file is the Bitcoin address.  Because there could be potentially many variable storage files, (one for each Bitcoin address), they are stored in a sub-directory of the user's _$HOME_ direcotry, named "bitcoin_addrs".
 
 The source of the Bitcoin address related data is https://blockchain.info.
 
@@ -15,8 +15,8 @@ The Bitcoin address in this example below is specified as _1GdK9UzpHBzqzX2A9JFP3
 
         alert-bitcoin-address-change.sh 1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA example@example.com
 
-### Used As A Buy Alert
-If the user wishes to regularly check by cron the amount of Bitcoin which the address has received, add the line of code shown below to the user's crontab .  The example line below causes the script to be executed once per minute.  Modify the example below accordingly if the script should be run less frequently.  The example code shown below assumes the user has alert-bitcoin-address-change.sh stored in a directory named "bin", in the "user" home directory. If stored in some other path, adjust this example accordingly.  
+### Used As A Bitcoin Address Balance Change Alert
+If the user wishes to regularly check by cron the amount of Bitcoin which the address has received, add the line of code shown below to the user's crontab .  The example line below causes the script to be executed once per minute.  Modify the example below accordingly if the script should be run less frequently.  The example code shown below assumes the user has _alert-bitcoin-address-change.sh_ stored in a directory named "bin", in the "user" home directory. If stored in some other path, adjust this example accordingly.  
 
         * * * * * /home/user/bin/alert-bitcoin-address-change.sh 1GdK9UzpHBzqzX2A9JFP3Di4weBwqgmoQA example@example.com >/dev/null 2>&1
 
